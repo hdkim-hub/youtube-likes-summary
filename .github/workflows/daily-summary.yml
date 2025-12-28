@@ -1,4 +1,4 @@
-﻿name: Daily YouTube Summary
+name: Daily YouTube Summary
 
 on:
   schedule:
@@ -8,26 +8,26 @@ on:
 jobs:
   generate-summary:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    
+
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.12'
-    
+
     - name: Install system dependencies
       run: |
         sudo apt-get update
         sudo apt-get install -y ffmpeg
-    
+
     - name: Install Python dependencies
       run: |
         pip install --upgrade pip
         pip install -r requirements.txt
-    
+
     - name: Setup YouTube credentials
       env:
         CLIENT_SECRET_BASE64: ${{ secrets.CLIENT_SECRET_BASE64 }}
@@ -39,23 +39,25 @@ jobs:
         echo "TOKEN_PICKLE 앞 20자: ${TOKEN_PICKLE_BASE64:0:20}"
         echo "$CLIENT_SECRET_BASE64" | base64 --decode > client_secret.json
         echo "$TOKEN_PICKLE_BASE64" | base64 --decode > token.pickle
-        ls -la client_secret.json token.pickle    - name: Update config with API key
+        ls -la client_secret.json token.pickle
+
+    - name: Update config with API key
       env:
         ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       run: |
         sed -i "s/\${ANTHROPIC_API_KEY}/$ANTHROPIC_API_KEY/" config/config.yaml
-    
+
     - name: Create required directories
       run: |
         mkdir -p data/audio
         mkdir -p data/transcripts
         mkdir -p data/summaries
         mkdir -p outputs
-    
+
     - name: Run YouTube summary
       run: |
         python main.py --max-videos 10
-    
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
