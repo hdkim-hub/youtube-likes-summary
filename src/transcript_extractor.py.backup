@@ -1,0 +1,169 @@
+"""
+YouTube 영상 자막 추출 모듈
+"""
+import os
+import json
+from youtube_transcript_api import YouTubeTranscriptApi
+from youtube_transcript_api._errors import TranscriptsDisabled, NoTranscriptFound
+
+class TranscriptExtractor:
+    def __init__(self):
+        self.transcript_dir = 'data/transcripts'
+        os.makedirs(self.transcript_dir, exist_ok=True)
+    
+    def extract_transcript(self, video_id, languages=['ko', 'en']):
+        """
+        영상의 자막 추출
+        
+        Args:
+            video_id: YouTube 영상 ID
+            languages: 선호 언어 리스트 (우선순위 순)
+        
+        Returns:
+            dict: 자막 텍스트와 메타데이터
+        """
+        try:
+            # 자막 리스트 가져오기
+            transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
+            
+            # 선호 언어 순서대로 시도
+            transcript = None
+            language_used = None
+            
+            for lang in languages:
+                try:
+                    transcript = transcript_list.find_transcript([lang])
+                    language_used = lang
+                    break
+                except NoTranscriptFound:
+                    continue
+            
+            # 선호 언어가 없으면 자동 생성된 자막 찾기
+            if not transcript:
+                try:
+                    transcript = transcript_list.find_generated_transcript(['ko', 'en'])
+                    language_used = transcript.language_code
+                except:
+                    # 그래도 없으면 첫 번째 자막 사용
+                    transcripts = list(transcript_list)
+                    if transcripts:
+                        transcript = transcripts[0]
+                        language_used = transcript.language_code
+            
+            if transcript:
+                # 자막 데이터 가져오기
+                transcript_data = transcript.fetch()
+                
+                # 텍스트만 추출
+                full_text = ' '.join([entry['text'] for entry in transcript_data])
+                
+                result = {
+                    'video_id': video_id,
+                    'language': language_used,
+                    'is_generated': transcript.is_generated,
+                    'text': full_text,
+                    'entries': transcript_data,  # 타임스탬프 포함 전체 데이터
+                    'status': 'success'
+                }
+                
+                print(f"✅ 자막 추출 성공: {video_id} (언어: {language_used})")
+                return result
+            
+        except TranscriptsDisabled:
+            print(f"⚠️  자막 비활성화: {video_id}")
+            return {
+                'video_id': video_id,
+                'status': 'disabled',
+                'error': '자막이 비활성화되어 있습니다'
+            }
+        
+        except Exception as e:
+            print(f"❌ 자막 추출 실패: {video_id} - {str(e)}")
+            return {
+                'video_id': video_id,
+                'status': 'error',
+                'error': str(e)
+            }
+    
+    def extract_multiple(self, videos):
+        """
+        여러 영상의 자막 일괄 추출
+        
+        Args:
+            videos: 영상 정보 리스트
+        
+        Returns:
+            list: 추출된 자막 리스트
+        """
+        results = []
+        
+        for i, video in enumerate(videos, 1):
+            video_id = video['video_id']
+            print(f"[{i}/{len(videos)}] 자막 추출 중: {video['title'][:50]}...")
+            
+            transcript = self.extract_transcript(video_id)
+            
+            # 영상 메타데이터 추가
+            transcript['video_title'] = video['title']
+            transcript['video_url'] = video['url']
+            transcript['channel'] = video['channel']
+            
+            results.append(transcript)
+        
+        print(f"\n✅ 총 {len(results)}개 영상 자막 추출 완료")
+        return results
+    
+    def save_transcripts(self, transcripts):
+        """추출한 자막들을 개별 파일로 저장"""
+        for transcript in transcripts:
+            if transcript['status'] == 'success':
+                video_id = transcript['video_id']
+                filepath = os.path.join(self.transcript_dir, f"{video_id}.json")
+                
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    json.dump(transcript, f, ensure_ascii=False, indent=2)
+        
+        print(f"✅ 자막 파일 저장 완료: {self.transcript_dir}")
+    
+    def load_transcript(self, video_id):
+        """저장된 자막 로드"""
+        filepath = os.path.join(self.transcript_dir, f"{video_id}.json")
+        
+        if not os.path.exists(filepath):
+            return None
+        
+        with open(filepath, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    
+    def is_english_content(self, transcript):
+        """영어 학습 콘텐츠인지 판단"""
+        if not transcript or transcript.get('status') != 'success':
+            return False
+        
+        # 자막 언어가 영어이거나
+        if transcript.get('language') in ['en', 'en-US', 'en-GB']:
+            return True
+        
+        # 제목에 영어 학습 관련 키워드가 있으면
+        title = transcript.get('video_title', '').lower()
+        english_keywords = ['english', '영어', 'toeic', 'speaking', 'grammar', 'vocabulary']
+        
+        return any(keyword in title for keyword in english_keywords)
+
+
+if __name__ == "__main__":
+    import json
+    
+    # 테스트용: likes_raw.json에서 영상 로드
+    with open('data/likes_raw.json', 'r', encoding='utf-8') as f:
+        videos = json.load(f)
+    
+    # 자막 추출
+    extractor = TranscriptExtractor()
+    transcripts = extractor.extract_multiple(videos[:5])  # 처음 5개만 테스트
+    extractor.save_transcripts(transcripts)
+    
+    # 영어 콘텐츠 확인
+    for t in transcripts:
+        if extractor.is_english_content(t):
+            print(f"📚 영어 학습 콘텐츠: {t['video_title']}")

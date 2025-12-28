@@ -1,0 +1,20 @@
+# API 설정
+youtube:
+  api_key: "NOT_USED"  # OAuth로 인증
+  max_results: 50
+
+anthropic:
+  api_key: "${ANTHROPIC_API_KEY}"  # GitHub Actions에서 환경변수로 주입
+  model: "claude-sonnet-4-20250514"
+
+# Whisper 설정
+whisper:
+  enabled: true
+  model: "base"
+  fallback_only: true
+
+# 출력 설정
+output:
+  markdown_format: true
+  excel_export: true
+  html_export: true

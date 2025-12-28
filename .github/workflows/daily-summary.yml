@@ -1,0 +1,61 @@
+﻿name: Daily YouTube Summary
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate-summary:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ffmpeg
+    
+    - name: Install Python dependencies
+      run: |
+        pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Setup YouTube credentials
+      env:
+        CLIENT_SECRET_JSON: ${{ secrets.CLIENT_SECRET_JSON }}
+        YOUTUBE_TOKEN_BASE64: ${{ secrets.YOUTUBE_TOKEN_BASE64 }}
+      run: |
+        echo "$CLIENT_SECRET_JSON" > client_secret.json
+        echo "$YOUTUBE_TOKEN_BASE64" | base64 -d > token.pickle
+    
+    - name: Update config with API key
+      env:
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      run: |
+        sed -i "s/\${ANTHROPIC_API_KEY}/$ANTHROPIC_API_KEY/" config/config.yaml
+    
+    - name: Create required directories
+      run: |
+        mkdir -p data/audio
+        mkdir -p data/transcripts
+        mkdir -p data/summaries
+        mkdir -p outputs
+    
+    - name: Run YouTube summary
+      run: |
+        python main.py --max-videos 10
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./outputs
+        publish_branch: gh-pages
