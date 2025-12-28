@@ -33,7 +33,7 @@ jobs:
         CLIENT_SECRET_JSON: ${{ secrets.CLIENT_SECRET_JSON }}
         YOUTUBE_TOKEN_BASE64: ${{ secrets.YOUTUBE_TOKEN_BASE64 }}
       run: |
-        echo "$CLIENT_SECRET_JSON" > client_secret.json
+        echo '${{ secrets.CLIENT_SECRET_JSON }}' > client_secret.json
         echo "$YOUTUBE_TOKEN_BASE64" | base64 -d > token.pickle
     
     - name: Update config with API key
