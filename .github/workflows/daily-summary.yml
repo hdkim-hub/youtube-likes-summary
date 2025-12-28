@@ -30,12 +30,11 @@ jobs:
     
     - name: Setup YouTube credentials
       env:
-        CLIENT_SECRET_JSON: ${{ secrets.CLIENT_SECRET_JSON }}
-        YOUTUBE_TOKEN_BASE64: ${{ secrets.YOUTUBE_TOKEN_BASE64 }}
+        CLIENT_SECRET_BASE64: ${{ secrets.CLIENT_SECRET_BASE64 }}
+        TOKEN_PICKLE_BASE64: ${{ secrets.TOKEN_PICKLE_BASE64 }}
       run: |
-        echo '${{ secrets.CLIENT_SECRET_JSON }}' > client_secret.json
-        echo "$YOUTUBE_TOKEN_BASE64" | base64 -d > token.pickle
-    
+        echo "$CLIENT_SECRET_BASE64" | base64 --decode > client_secret.json
+        echo "$TOKEN_PICKLE_BASE64" | base64 --decode > token.pickle    
     - name: Update config with API key
       env:
         ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
