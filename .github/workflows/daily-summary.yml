@@ -39,7 +39,9 @@ jobs:
         echo "TOKEN_PICKLE 앞 20자: ${TOKEN_PICKLE_BASE64:0:20}"
         echo "$CLIENT_SECRET_BASE64" | base64 --decode > client_secret.json
         echo "$TOKEN_PICKLE_BASE64" | base64 --decode > token.pickle
-        ls -la client_secret.json token.pickle    - name: Update config with API key
+        ls -la client_secret.json token.pickle
+    
+    - name: Update config with API key
       env:
         ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       run: |
@@ -55,6 +57,14 @@ jobs:
     - name: Run YouTube summary
       run: |
         python main.py --max-videos 10
+    
+    - name: Create index.html
+      run: |
+        cd outputs
+        TODAY=$(date +%Y%m%d)
+        if [ -f "${TODAY}_summary.html" ]; then
+          cp "${TODAY}_summary.html" index.html
+        fi
     
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
