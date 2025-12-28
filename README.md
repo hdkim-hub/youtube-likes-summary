@@ -1,256 +1,237 @@
-<<<<<<< HEAD
-# YouTube 좋아요 영상 요약 시스템
+# 🎬 YouTube 좋아요 영상 자동 요약 시스템
 
-YouTube에서 "좋아요"를 누른 영상들을 자동으로 수집하고, AI로 요약하여 복습할 수 있는 시스템입니다.
+> AI(Claude)와 Whisper로 YouTube 좋아요 영상을 자동 요약하고 복습 일정을 생성하는 시스템
 
-특히 영어 학습 영상은 핵심 표현과 문법을 추출하여 반복 학습에 최적화되어 있습니다.
-
-## 🎯 주요 기능
-
-- ✅ YouTube 좋아요 영상 자동 수집
-- ✅ 영상 자막 추출 (한글/영어)
-- ✅ Claude AI 기반 스마트 요약
-- ✅ 영어 학습 영상 특별 처리 (표현/문법 추출)
-- ✅ 카테고리 자동 분류
-- ✅ Markdown/Excel 리포트 생성
-- ✅ 간격 반복 학습 일정 생성
-
-## 📁 프로젝트 구조
-
-```
-youtube-likes-summary/
-├── config/
-│   └── config.yaml          # 설정 파일
-├── data/
-│   ├── likes_raw.json       # 수집한 좋아요 목록
-│   ├── transcripts/         # 추출한 자막들
-│   └── summaries/           # 생성된 요약본들
-├── src/
-│   ├── youtube_collector.py
-│   ├── transcript_extractor.py
-│   ├── summarizer.py
-│   ├── categorizer.py
-│   └── reporter.py
-├── outputs/
-│   ├── YYYYMMDD_summary.md
-│   ├── YYYYMMDD_youtube_summaries.xlsx
-│   └── review_schedule.md
-├── main.py
-├── requirements.txt
-└── README.md
-```
-
-## 🚀 설치 방법
-
-### 1. 필수 패키지 설치
-
-```bash
-pip install -r requirements.txt
-```
-
-### 2. YouTube Data API 설정
-
-1. [Google Cloud Console](https://console.cloud.google.com/)에 접속
-2. 새 프로젝트 생성
-3. "YouTube Data API v3" 활성화
-4. OAuth 2.0 클라이언트 ID 생성
-5. `client_secret.json` 파일 다운로드하여 프로젝트 루트에 저장
-
-### 3. Anthropic API 키 설정
-
-1. [Anthropic Console](https://console.anthropic.com/)에서 API 키 발급
-2. `config/config.yaml`에 API 키 입력
-
-```yaml
-anthropic:
-  api_key: "your-api-key-here"
-```
-
-### 4. 설정 파일 편집
-
-`config/config.yaml`을 열어 원하는 설정 변경:
-
-```yaml
-# 수집할 영상 수
-youtube:
-  max_results: 50
-
-# 카테고리 키워드 추가/수정
-categories:
-  영어학습:
-    - "english"
-    - "영어"
-    - "TOEIC"
-```
-
-## 💻 사용 방법
-
-### 기본 실행
-
-```bash
-python main.py
-```
-
-### 옵션 사용
-
-```bash
-# 최대 100개 영상 수집
-python main.py --max-videos 100
-
-# 기존 데이터 무시하고 새로 수집
-python main.py --force-refresh
-
-# 다른 설정 파일 사용
-python main.py --config my_config.yaml
-```
-
-### 단계별 실행
-
-각 모듈을 개별적으로 실행할 수도 있습니다:
-
-```bash
-# 1. 좋아요 영상 수집만
-python src/youtube_collector.py
-
-# 2. 자막 추출만
-python src/transcript_extractor.py
-
-# 3. 요약 생성만
-python src/summarizer.py
-```
-
-## 📊 출력 파일
-
-### 1. Markdown 요약 (`YYYYMMDD_summary.md`)
-
-카테고리별로 정리된 영상 요약:
-
-```markdown
-# YouTube 좋아요 영상 요약
-
-## 📁 영어학습
-
-### 1. 영어 회화 필수 표현 10개
-
-**채널**: English with Lucy
-**링크**: https://youtube.com/...
-
-핵심 내용 요약...
-```
-
-### 2. Excel 데이터베이스 (`YYYYMMDD_youtube_summaries.xlsx`)
-
-- **전체** 시트: 모든 영상 요약
-- **카테고리별** 시트: 각 카테고리 영상
-- **영어학습_복습용** 시트: 영어 학습 콘텐츠만
-
-### 3. 복습 일정 (`review_schedule.md`)
-
-간격 반복 학습을 위한 스케줄:
-
-```markdown
-## 2024-01-02 (D+1)
-
-- [ ] [영상 제목](링크)
-- [ ] [영상 제목](링크)
-
-## 2024-01-04 (D+3)
-...
-```
-
-## 🎓 영어 학습 콘텐츠 특별 처리
-
-영어 학습 영상으로 분류되면 다음 정보를 추출합니다:
-
-1. **핵심 주제**: 1-2줄 요약
-2. **주요 영어 표현**: 5개 (예문 포함)
-3. **문법 포인트**: 설명된 문법 사항
-4. **학습 팁**: 실용적인 학습 조언
-
-### 영어 학습 콘텐츠 판단 기준
-
-- 자막 언어가 영어
-- 제목/설명에 키워드 포함: `english`, `영어`, `TOEIC`, `speaking`, `grammar`, `vocabulary`
-
-## ⚙️ 커스터마이징
-
-### 1. 카테고리 추가
-
-`config/config.yaml`의 `categories` 섹션 수정:
-
-```yaml
-categories:
-  내가_추가한_카테고리:
-    - "키워드1"
-    - "키워드2"
-```
-
-### 2. 요약 프롬프트 변경
-
-`config/config.yaml`의 `summary` 섹션에서 프롬프트 수정:
-
-```yaml
-summary:
-  general_prompt: |
-    여기에 원하는 요약 방식 설명...
-```
-
-### 3. 복습 간격 조정
-
-`src/reporter.py`의 `generate_review_schedule` 함수에서 `days` 파라미터 수정:
-
-```python
-def generate_review_schedule(self, summaries, days=[1, 3, 7, 14, 30]):
-    # days를 원하는 간격으로 수정
-```
-
-## 🔧 문제 해결
-
-### YouTube API 인증 오류
-
-```
-에러: client_secret.json을 찾을 수 없습니다
-```
-
-**해결**: Google Cloud Console에서 OAuth 2.0 클라이언트 ID 생성 후 `client_secret.json` 다운로드
-
-### 자막 추출 실패
-
-```
-⚠️ 자막 비활성화: video_id
-```
-
-**원인**: 해당 영상에 자막이 없거나 비활성화됨
-**해결**: 자막이 있는 영상만 요약됩니다 (정상 동작)
-
-### Claude API 요금
-
-- 각 영상당 약 1,000-4,000 토큰 사용
-- 50개 영상 기준 약 $0.50-2.00 예상
-- `config.yaml`에서 `max_results`를 조정하여 비용 관리
-
-## 📈 향후 개선 계획
-
-- [ ] 자동 스케줄링 (cron/작업 스케줄러)
-- [ ] SMS/이메일 복습 알림
-- [ ] 웹 대시보드 추가
-- [ ] 시청 기록도 함께 분석
-- [ ] 더 다양한 언어 학습 지원
-
-## 🤝 기여
-
-이슈나 개선 아이디어가 있으시면 언제든지 알려주세요!
-
-## 📝 라이선스
-
-MIT License
+[![GitHub Pages](https://img.shields.io/badge/Demo-GitHub%20Pages-blue)](https://hdkim-hub.github.io/youtube-likes-summary/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
 
-**만든 사람**: H.D.Kim @ 백석대 평생교육원
-**버전**: 1.0.0
-**최종 업데이트**: 2024-12-24
-=======
-# youtube-likes-summary
-YouTube 좋아요 영상 자동 요약 시스템
->>>>>>> 73337991032bdd980c9355298505cee46e4acfc6
+## ✨ 주요 기능
+
+- 🤖 **AI 자동 요약**: Claude AI가 영상 내용을 자동으로 요약
+- 🎤 **음성 인식**: Whisper로 자막 없는 영상도 처리
+- 📊 **카테고리 분류**: 영어학습, 기술, 일반 등 자동 분류
+- 📅 **복습 일정**: 에빙하우스 망각곡선 기반 복습 일정 자동 생성
+- 🌐 **웹 대시보드**: GitHub Pages로 언제든지 확인 가능
+- ⏰ **완전 자동화**: 매일 자동 실행, 배포까지 자동
+
+---
+
+## 🚀 빠른 시작 (3단계)
+
+### 1️⃣ 이 Template 사용하기
+
+1. 이 페이지 오른쪽 위 **"Use this template"** 버튼 클릭
+2. **"Create a new repository"** 선택
+3. Repository 이름 입력 (예: `my-youtube-summary`)
+4. **"Create repository"** 클릭
+
+### 2️⃣ API 키 발급
+
+#### Anthropic API 키
+1. https://console.anthropic.com/ 접속
+2. 회원가입 (무료 크레딧 제공)
+3. **API Keys** → **Create Key** → 키 복사
+
+#### YouTube OAuth 인증
+1. https://console.cloud.google.com/ 접속
+2. 새 프로젝트 생성
+3. **YouTube Data API v3** 활성화
+4. **OAuth 2.0 Client ID** 생성 (Desktop app)
+5. `client_secret.json` 다운로드
+
+### 3️⃣ GitHub Secrets 설정
+
+**Settings → Secrets and variables → Actions → New repository secret**
+
+필요한 3개 Secret:
+
+| Secret 이름 | 설명 | 값 얻는 방법 |
+|------------|------|-------------|
+| `ANTHROPIC_API_KEY` | Claude AI API 키 | Anthropic 콘솔에서 복사 |
+| `CLIENT_SECRET_BASE64` | YouTube OAuth | [가이드 참고](#youtube-oauth-설정) |
+| `TOKEN_PICKLE_BASE64` | YouTube 인증 토큰 | [가이드 참고](#youtube-oauth-설정) |
+
+---
+
+## 📖 상세 설정 가이드
+
+### YouTube OAuth 설정
+
+#### 1) 로컬에서 OAuth 인증
+```bash
+# 프로젝트 클론
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+cd YOUR_REPO_NAME
+
+# 의존성 설치
+pip install -r requirements.txt
+
+# client_secret.json 파일을 프로젝트 폴더에 복사
+
+# 첫 실행 (OAuth 인증)
+python main.py --max-videos 5
+```
+
+브라우저가 열리면 Google 계정으로 로그인하고 권한 승인
+→ `token.pickle` 파일 생성됨
+
+#### 2) Secret으로 변환
+
+**Windows PowerShell:**
+```powershell
+# CLIENT_SECRET_BASE64 생성
+$content = [System.IO.File]::ReadAllBytes("client_secret.json")
+$base64 = [Convert]::ToBase64String($content)
+$base64 | Set-Clipboard
+
+# TOKEN_PICKLE_BASE64 생성
+$tokenContent = [System.IO.File]::ReadAllBytes("token.pickle")
+$tokenBase64 = [Convert]::ToBase64String($tokenContent)
+$tokenBase64 | Set-Clipboard
+```
+
+**Mac/Linux:**
+```bash
+# CLIENT_SECRET_BASE64 생성
+base64 -i client_secret.json | pbcopy
+
+# TOKEN_PICKLE_BASE64 생성
+base64 -i token.pickle | pbcopy
+```
+
+복사된 값을 GitHub Secrets에 각각 저장
+
+---
+
+## ⚙️ GitHub Actions 설정
+
+### 1) Workflow 권한 부여
+
+**Settings → Actions → General → Workflow permissions**
+- ✅ "Read and write permissions" 선택
+- ✅ "Allow GitHub Actions to create and approve pull requests" 체크
+- **Save**
+
+### 2) GitHub Pages 활성화
+
+**Settings → Pages**
+- **Source**: Deploy from a branch
+- **Branch**: `gh-pages`, `/ (root)`
+- **Save**
+
+---
+
+## 🎯 사용 방법
+
+### 자동 실행 (권장)
+- **매일 UTC 0시 (한국시간 오전 9시)** 자동 실행
+- 결과는 `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/` 에서 확인
+
+### 수동 실행
+1. GitHub 저장소 → **Actions** 탭
+2. **"Daily YouTube Summary"** 클릭
+3. **"Run workflow"** 클릭
+
+### 로컬 실행
+```bash
+python main.py --max-videos 10
+```
+
+---
+
+## 🛠️ 커스터마이징
+
+### 실행 시간 변경
+
+`.github/workflows/daily-summary.yml` 파일:
+```yaml
+on:
+  schedule:
+    - cron: '0 0 * * *'  # UTC 0시 = 한국 오전 9시
+```
+
+| 한국 시간 | cron 설정 |
+|---------|-----------|
+| 오전 6시 | `'0 21 * * *'` |
+| 오전 9시 | `'0 0 * * *'` |
+| 정오 12시 | `'0 3 * * *'` |
+| 오후 6시 | `'0 9 * * *'` |
+
+### 영상 수 변경
+
+`.github/workflows/daily-summary.yml`:
+```yaml
+- name: Run YouTube summary
+  run: |
+    python main.py --max-videos 50  # 원하는 수로 변경
+```
+
+---
+
+## 📁 프로젝트 구조
+```
+youtube-likes-summary/
+├── main.py                    # 메인 실행 파일
+├── requirements.txt           # Python 의존성
+├── config/config.yaml         # 설정 파일
+├── src/
+│   ├── youtube_collector.py  # YouTube 데이터 수집
+│   ├── transcript_extractor.py # 자막/음성 추출
+│   ├── summarizer.py          # AI 요약 생성
+│   ├── categorizer.py         # 카테고리 분류
+│   └── reporter.py            # 리포트 생성
+├── .github/workflows/
+│   └── daily-summary.yml      # GitHub Actions
+├── SETUP_GUIDE.md            # 상세 설정 가이드
+└── README.md                 # 이 파일
+```
+
+---
+
+## 🔍 문제 해결
+
+자세한 문제 해결 방법은 [`SETUP_GUIDE.md`](SETUP_GUIDE.md)를 참고하세요.
+
+### 자주 발생하는 문제
+
+**Q: GitHub Actions에서 "Permission denied" 에러**
+→ Settings → Actions → General → Workflow permissions → "Read and write" 선택
+
+**Q: 404 에러 (GitHub Pages)**
+→ Settings → Pages에서 gh-pages 브랜치 선택 확인
+
+**Q: "base64: invalid input" 에러**
+→ Secret 값 재생성 (줄바꿈 제거)
+
+---
+
+## 🤝 기여하기
+
+개선 사항이나 버그 리포트는 Issues에 등록해주세요!
+
+---
+
+## 📄 라이선스
+
+MIT License - 자유롭게 사용, 수정, 배포 가능
+
+---
+
+## 🙏 감사의 말
+
+- **Claude AI** (Anthropic) - 강력한 요약 생성
+- **Whisper** (OpenAI) - 정확한 음성 인식
+- **GitHub Actions** - 완전 자동화
+
+---
+
+## 📞 도움이 필요하신가요?
+
+- 📖 상세 가이드: [`SETUP_GUIDE.md`](SETUP_GUIDE.md)
+- 🐛 버그 리포트: [Issues](https://github.com/hdkim-hub/youtube-likes-summary/issues)
+
+---
+
+**⭐ 이 프로젝트가 유용하다면 Star를 눌러주세요!**
