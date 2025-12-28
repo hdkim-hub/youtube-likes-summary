@@ -14,14 +14,14 @@ class ReportGenerator:
     def generate_markdown_report(self, summaries, categorized_videos, filename=None):
         """Markdown 형식 일일 요약 리포트 생성"""
         if not filename:
-            filename = f"{datetime.now().strftime('%Y%m%d')}_summary.md"
+            filename = f"{datetime.now(timezone(timedelta(hours=9))).strftime('%Y%m%d')}_summary.md"
         
         filepath = os.path.join(self.output_dir, filename)
         
         with open(filepath, 'w', encoding='utf-8') as f:
             # 헤더
             f.write(f"# YouTube 좋아요 영상 요약\n\n")
-            f.write(f"**생성일시**: {datetime.now().strftime('%Y년 %m월 %d일 %H:%M')}\n\n")
+            f.write(f"**생성일시**: {datetime.now(timezone(timedelta(hours=9))).strftime('%Y년 %m월 %d일 %H:%M')}\n\n")
             f.write(f"**총 영상 수**: {len(summaries)}개\n\n")
             
             # 카테고리별 통계
@@ -76,7 +76,7 @@ class ReportGenerator:
     def generate_excel_report(self, summaries, categorized_videos, filename=None):
         """Excel 형식 학습 데이터베이스 생성"""
         if not filename:
-            filename = f"{datetime.now().strftime('%Y%m%d')}_youtube_summaries.xlsx"
+            filename = f"{datetime.now(timezone(timedelta(hours=9))).strftime('%Y%m%d')}_youtube_summaries.xlsx"
         
         filepath = os.path.join(self.output_dir, filename)
         
@@ -104,7 +104,7 @@ class ReportGenerator:
                 'URL': summary['video_url'],
                 '유형': '영어학습' if summary['type'] == 'english_learning' else '일반',
                 '요약': summary['summary'],
-                '수집일시': datetime.now().strftime('%Y-%m-%d %H:%M')
+                '수집일시': datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%d %H:%M')
             })
         
         # DataFrame 생성
@@ -132,7 +132,7 @@ class ReportGenerator:
     def generate_html_report(self, summaries, categorized_videos, filename=None):
         """HTML 웹페이지 리포트 생성"""
         if not filename:
-            filename = f"{datetime.now().strftime('%Y%m%d')}_summary.html"
+            filename = f"{datetime.now(timezone(timedelta(hours=9))).strftime('%Y%m%d')}_summary.html"
         
         filepath = os.path.join(self.output_dir, filename)
         
@@ -173,7 +173,7 @@ class ReportGenerator:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube 좋아요 요약 - {datetime.now().strftime('%Y.%m.%d')}</title>
+    <title>YouTube 좋아요 요약 - {datetime.now(timezone(timedelta(hours=9))).strftime('%Y.%m.%d')}</title>
     <style>
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         body {{
@@ -357,7 +357,7 @@ class ReportGenerator:
 <body>
     <div class="container">
         <h1>🎬 YouTube 좋아요 요약</h1>
-        <div class="date">생성일시: {datetime.now().strftime('%Y년 %m월 %d일 %H:%M')}</div>
+        <div class="date">생성일시: {datetime.now(timezone(timedelta(hours=9))).strftime('%Y년 %m월 %d일 %H:%M')}</div>
         
         <div class="stats">
             <div class="stat-card">
@@ -435,7 +435,7 @@ class ReportGenerator:
         
         html += f"""
         <footer>
-            <p>Powered by Claude AI & Whisper | 생성: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
+            <p>Powered by Claude AI & Whisper | 생성: {datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%d %H:%M:%S')}</p>
         </footer>
     </div>
     
@@ -469,7 +469,7 @@ class ReportGenerator:
     def generate_review_schedule(self, summaries, days=[1, 3, 7, 14, 30]):
         """복습 일정 생성"""
         schedule = {}
-        today = datetime.now()
+        today = datetime.now(timezone(timedelta(hours=9)))
         
         english_summaries = [s for s in summaries if s.get('type') == 'english_learning' and s['status'] == 'success']
         
@@ -512,7 +512,7 @@ class ReportGenerator:
             '성공_요약_수': len([s for s in summaries if s.get('status') == 'success']),
             '영어학습_콘텐츠': len([s for s in summaries if s.get('type') == 'english_learning']),
             '카테고리별_분포': {cat: len(vids) for cat, vids in categorized_videos.items()},
-            '생성일시': datetime.now().isoformat()
+            '생성일시': datetime.now(timezone(timedelta(hours=9))).isoformat()
         }
         
         stats_file = os.path.join(self.output_dir, 'statistics.json')
