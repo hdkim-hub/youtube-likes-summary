@@ -3,7 +3,7 @@
 """
 import os
 import json
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 import pandas as pd
 
 class ReportGenerator:
