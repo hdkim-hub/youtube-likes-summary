@@ -92,6 +92,9 @@ class YouTubeLikesSummarizer:
             existing = self.collector.load_from_json()
             if existing:
                 print(f"  ℹ️  기존 데이터 발견: {len(existing)}개")
+            if os.getenv('CI'):
+                print("  ℹ️  CI 환경 감지: 기존 데이터 자동 사용")
+                return existing
                 use_existing = input("  기존 데이터를 사용하시겠습니까? (y/n): ").lower()
                 if use_existing == 'y':
                     return existing
