@@ -1,0 +1,28 @@
+{
+  "video_id": "KxJTFYCWNn0",
+  "language": "ko",
+  "is_generated": true,
+  "method": "whisper",
+  "text": "iku 지risk 잠 sus",
+  "entries": [
+    {
+      "text": "iku",
+      "start": 0.0,
+      "duration": 4.8
+    },
+    {
+      "text": "지risk",
+      "start": 5.8,
+      "duration": 3.5200000000000005
+    },
+    {
+      "text": "잠 sus",
+      "start": 15.32,
+      "duration": 11.2
+    }
+  ],
+  "status": "success",
+  "video_title": "장인어른 노래에 코러스는 절거워❤️ #노래방 #나훈아 #홍시 #코러스",
+  "video_url": "https://www.youtube.com/watch?v=KxJTFYCWNn0",
+  "channel": "주서방"
+}

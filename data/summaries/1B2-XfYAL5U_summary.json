@@ -1,0 +1,9 @@
+{
+  "video_id": "1B2-XfYAL5U",
+  "video_title": "코드 한 줄 없이 RAG 구현하기 - LLM 성능 폭발적으로 향상시키는 비법",
+  "video_url": "https://www.youtube.com/watch?v=1B2-XfYAL5U",
+  "channel": "평범한 사업가",
+  "type": "general",
+  "summary": "**핵심 요약:**\n\n이 영상은 MCP(Model Control Protocol)를 활용해 코드 없이 RAG(검색 증강 생성)를 구현하는 방법을 다룹니다. ChatGPT나 Perplexity의 웹 검색 기능도 본질적으로 RAG인데, 이들은 정해진 데이터 소스만 사용한다는 한계가 있습니다. \n\n반면 위키피디아 같은 특정 사이트에 MCP를 연결하면, 원하는 데이터 소스로 검색을 제한하여 더 정확하고 맞춤형 RAG를 구현할 수 있습니다. 사용자는 코드 작성 없이도 이런 시스템을 활용할 수 있고, 직접 구축하고 싶다면 약간의 학습으로 자신만의 데이터 소스 기반 RAG를 만들 수 있다는 것이 핵심 메시지입니다.",
+  "status": "success"
+}

@@ -1,0 +1,9 @@
+{
+  "video_id": "Fddi32hTZtk",
+  "video_title": "EXCEL_엑셀! VLOOKUP 한 방에! 이렇게 똑똑하게 사용하기 Ver2.0!#shorts #excel",
+  "video_url": "https://www.youtube.com/watch?v=Fddi32hTZtk",
+  "channel": "엑셀 이것만!",
+  "type": "general",
+  "summary": "**VLOOKUP 한 번에 여러 결과 출력하는 방법**\n\n직원 ID 하나를 선택했을 때, 여러 정보(연봉, 부서, 직급 등)를 세로 방향으로 한 번에 출력하는 개선된 VLOOKUP 사용법을 소개합니다.\n\n핵심 포인트는 열 인덱스 번호를 입력할 때 **쉼표(,) 대신 세미콜론(;)을 사용**하는 것입니다. 예를 들어 `VLOOKUP(기준값, 범위, {5;3;4}, FALSE)`와 같이 입력한 후 **Ctrl+Shift+Enter**로 배열 수식을 완성하면 됩니다.\n\n이 방법을 사용하면 하나의 수식으로 여러 열의 데이터를 동시에 추출할 수 있어 작업 효율성이 크게 향상됩니다.",
+  "status": "success"
+}

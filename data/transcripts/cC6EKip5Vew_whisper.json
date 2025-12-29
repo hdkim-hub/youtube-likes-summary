@@ -1,0 +1,148 @@
+{
+  "video_id": "cC6EKip5Vew",
+  "language": "en",
+  "is_generated": true,
+  "method": "whisper",
+  "text": "When you're in your sniper's position, how long can you be in your position before you start to get paranoid that they're going to hone in on where you're shooting from and come after you? If you're inside the city, then depends if you take an occupied house or unoccupied. If you take occupied, then you have to take the family, feed them, make them go to the bathroom, all this other stuff, let them do everything, you just can't let them go outside. By 9 o'clock in the morning, they know you're there. If it's unoccupied, then by the time you take your first shot, they know where you are. And then you move on. You can't move, you're in the middle of the city. That's why when I go in, I don't go in alone. I take my team with me and once I take my shot, now it's a defensive position. Okay, you were so well known by the Iraqi insurgents that you were fighting that they put a $20,000 bounty on your head, is that right? Yes, sir. Okay, you don't have to call me sir by the way, I'm a... I'm a talk show host. I'm here. You're here and I'm here.",
+  "entries": [
+    {
+      "text": "When you're in your sniper's position,",
+      "start": 0.0,
+      "duration": 1.36
+    },
+    {
+      "text": "how long can you be in your position",
+      "start": 1.36,
+      "duration": 1.86
+    },
+    {
+      "text": "before you start to get paranoid",
+      "start": 3.22,
+      "duration": 1.2600000000000002
+    },
+    {
+      "text": "that they're going to hone in",
+      "start": 4.48,
+      "duration": 1.3199999999999994
+    },
+    {
+      "text": "on where you're shooting from and come after you?",
+      "start": 5.8,
+      "duration": 2.08
+    },
+    {
+      "text": "If you're inside the city,",
+      "start": 7.88,
+      "duration": 1.3600000000000003
+    },
+    {
+      "text": "then depends if you take an occupied house or unoccupied.",
+      "start": 9.24,
+      "duration": 3.0
+    },
+    {
+      "text": "If you take occupied, then you have to take the family,",
+      "start": 12.24,
+      "duration": 2.2799999999999994
+    },
+    {
+      "text": "feed them, make them go to the bathroom,",
+      "start": 14.52,
+      "duration": 1.6400000000000006
+    },
+    {
+      "text": "all this other stuff, let them do everything,",
+      "start": 16.16,
+      "duration": 1.7600000000000016
+    },
+    {
+      "text": "you just can't let them go outside.",
+      "start": 17.92,
+      "duration": 1.1999999999999993
+    },
+    {
+      "text": "By 9 o'clock in the morning, they know you're there.",
+      "start": 19.12,
+      "duration": 1.9199999999999982
+    },
+    {
+      "text": "If it's unoccupied, then by the time you take your first shot,",
+      "start": 21.04,
+      "duration": 2.7600000000000016
+    },
+    {
+      "text": "they know where you are.",
+      "start": 23.8,
+      "duration": 0.8399999999999999
+    },
+    {
+      "text": "And then you move on.",
+      "start": 24.64,
+      "duration": 1.1999999999999993
+    },
+    {
+      "text": "You can't move, you're in the middle of the city.",
+      "start": 25.84,
+      "duration": 1.5199999999999996
+    },
+    {
+      "text": "That's why when I go in, I don't go in alone.",
+      "start": 27.36,
+      "duration": 2.0400000000000027
+    },
+    {
+      "text": "I take my team with me and once I take my shot,",
+      "start": 29.4,
+      "duration": 2.4800000000000004
+    },
+    {
+      "text": "now it's a defensive position.",
+      "start": 31.88,
+      "duration": 1.5599999999999987
+    },
+    {
+      "text": "Okay, you were so well known",
+      "start": 33.44,
+      "duration": 1.9600000000000009
+    },
+    {
+      "text": "by the Iraqi insurgents that you were fighting",
+      "start": 35.4,
+      "duration": 2.0
+    },
+    {
+      "text": "that they put a $20,000 bounty on your head, is that right?",
+      "start": 37.4,
+      "duration": 3.200000000000003
+    },
+    {
+      "text": "Yes, sir.",
+      "start": 40.6,
+      "duration": 0.519999999999996
+    },
+    {
+      "text": "Okay, you don't have to call me sir by the way, I'm a...",
+      "start": 41.12,
+      "duration": 2.759999999999998
+    },
+    {
+      "text": "I'm a talk show host.",
+      "start": 43.879999999999995,
+      "duration": 2.200000000000003
+    },
+    {
+      "text": "I'm here.",
+      "start": 46.08,
+      "duration": 1.8400000000000034
+    },
+    {
+      "text": "You're here and I'm here.",
+      "start": 47.92,
+      "duration": 2.6400000000000006
+    }
+  ],
+  "status": "success",
+  "video_title": "토크쇼에 출연한 전설적인 저격수 크리스 카일",
+  "video_url": "https://www.youtube.com/watch?v=cC6EKip5Vew",
+  "channel": "오호라"
+}

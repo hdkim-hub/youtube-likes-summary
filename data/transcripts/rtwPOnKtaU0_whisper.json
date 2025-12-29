@@ -1,0 +1,28 @@
+{
+  "video_id": "rtwPOnKtaU0",
+  "language": "ko",
+  "is_generated": true,
+  "method": "whisper",
+  "text": "이미 결정된 상황이라 현재 완료로 말하는 게 더 자연스러워요. My flight has been delayed. 아, okay. My flight has been delayed.",
+  "entries": [
+    {
+      "text": "이미 결정된 상황이라 현재 완료로 말하는 게 더 자연스러워요.",
+      "start": 0.0,
+      "duration": 4.88
+    },
+    {
+      "text": "My flight has been delayed.",
+      "start": 4.88,
+      "duration": 1.08
+    },
+    {
+      "text": "아, okay. My flight has been delayed.",
+      "start": 5.96,
+      "duration": 2.0
+    }
+  ],
+  "status": "success",
+  "video_title": "공항 영어는 한 끗 차이 ✈️ | 비행기 지연됐을 때 꼭 할 말",
+  "video_url": "https://www.youtube.com/watch?v=rtwPOnKtaU0",
+  "channel": "라이프픽커"
+}

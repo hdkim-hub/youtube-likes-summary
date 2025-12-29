@@ -1,0 +1,33 @@
+{
+  "video_id": "A8GW47uZX2w",
+  "language": "en",
+  "is_generated": true,
+  "method": "whisper",
+  "text": "Make no mistake make no mistake make no mistake make no mistake make no mistake Make no mistake I know exactly what you did Make no mistake. I won't protect you again Make no mistake this is far from over",
+  "entries": [
+    {
+      "text": "Make no mistake make no mistake make no mistake make no mistake make no mistake",
+      "start": 0.0,
+      "duration": 9.44
+    },
+    {
+      "text": "Make no mistake I know exactly what you did",
+      "start": 18.36,
+      "duration": 3.9200000000000017
+    },
+    {
+      "text": "Make no mistake. I won't protect you again",
+      "start": 23.88,
+      "duration": 3.6400000000000006
+    },
+    {
+      "text": "Make no mistake this is far from over",
+      "start": 27.52,
+      "duration": 4.800000000000001
+    }
+  ],
+  "status": "success",
+  "video_title": "써먹는 원어민 생활영어✨ #생활영어 #미드영어 #원어민영어 #shorts #쇼츠",
+  "video_url": "https://www.youtube.com/watch?v=A8GW47uZX2w",
+  "channel": "써먹는영어"
+}

@@ -1,0 +1,33 @@
+{
+  "video_id": "qvZEc5oNdms",
+  "language": "ko",
+  "is_generated": true,
+  "method": "whisper",
+  "text": "나 이제 가봐야겠어. 나중에 또 얘기해. 좋은 하루 보내. 좋은 하루 보내.",
+  "entries": [
+    {
+      "text": "나 이제 가봐야겠어.",
+      "start": 0.0,
+      "duration": 6.4
+    },
+    {
+      "text": "나중에 또 얘기해.",
+      "start": 6.4,
+      "duration": 6.279999999999999
+    },
+    {
+      "text": "좋은 하루 보내.",
+      "start": 12.68,
+      "duration": 3.6000000000000014
+    },
+    {
+      "text": "좋은 하루 보내.",
+      "start": 16.28,
+      "duration": 2.0
+    }
+  ],
+  "status": "success",
+  "video_title": "기초 영어 회화 | 헤어질 때 쓰는 3가지 영어 표현 #영어회화",
+  "video_url": "https://www.youtube.com/watch?v=qvZEc5oNdms",
+  "channel": "매일 3문장 영어"
+}

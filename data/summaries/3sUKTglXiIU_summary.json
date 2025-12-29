@@ -1,0 +1,9 @@
+{
+  "video_id": "3sUKTglXiIU",
+  "video_title": "EXCEL_엑셀! 쉽게 배우는 체크박스(✅)를 활용해 업무 완료율 표시하는 방법 알아볼게요! #shorts  #excel",
+  "video_url": "https://www.youtube.com/watch?v=3sUKTglXiIU",
+  "channel": "엑셀 이것만!",
+  "type": "general",
+  "summary": "**엑셀 체크박스를 활용한 업무 완료율 계산 방법**\n\n엑셀에서 체크박스를 삽입하여 업무 완료 여부를 체크하고, COUNTIF 함수를 사용해 담당자별 완료율을 자동 계산하는 방법을 소개합니다. \n\n삽입 → 컨트롤에서 체크박스를 생성한 후, `=COUNTIF(완료범위, \"TRUE\")/COUNTIF(담당자범위, 담당자명)` 수식을 활용하여 각 담당자의 전체 업무 대비 완료된 업무의 비율을 백분율로 표시할 수 있습니다.\n\n체크박스를 클릭할 때마다 완료율이 실시간으로 업데이트되어 업무 진행 상황을 효율적으로 관리할 수 있습니다.",
+  "status": "success"
+}

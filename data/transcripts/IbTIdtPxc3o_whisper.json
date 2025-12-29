@@ -1,0 +1,233 @@
+{
+  "video_id": "IbTIdtPxc3o",
+  "language": "ko",
+  "is_generated": true,
+  "method": "whisper",
+  "text": "아.. 귀여워가는데? 귀여워가는데? 귀여워 전화 안 봤던데? 요즘 전화 계속 안 봤던데? 전화 안 봤던데? 카톡 같다, 지금? 카톡 같다, 지금? 전화 안 봤던데? 카톡! 결혼했냐? 결혼했냐? 와! 둘이 어떻게 만난다? 어떻게 만난다? 우리 뭐하게? 뭐하게? 베이스다에서 했어? 베이스다에서 만났어 베이스다에서 만나면 오빠, 우리 또 옛날에 해, 진짜 바쳤다, 우리 베이스다 맞췄다, 우리 귀여워 흘렸어 야! 우리 같이 삼계통 귀여워 우리 삼계통 먹고 남자또한다고 우리 오빠, 우리 삼계통 도와면 안 됐어 속은데 속은데 속이 형 남아? 우리 그때 속은데 속은데 속은데 정발모같아 정발모같아 아기",
+  "entries": [
+    {
+      "text": "아..",
+      "start": 0.0,
+      "duration": 2.0
+    },
+    {
+      "text": "귀여워가는데?",
+      "start": 2.0,
+      "duration": 2.0
+    },
+    {
+      "text": "귀여워가는데?",
+      "start": 4.0,
+      "duration": 2.0
+    },
+    {
+      "text": "귀여워",
+      "start": 6.0,
+      "duration": 3.0
+    },
+    {
+      "text": "전화 안 봤던데?",
+      "start": 9.0,
+      "duration": 2.0
+    },
+    {
+      "text": "요즘 전화 계속 안 봤던데?",
+      "start": 11.0,
+      "duration": 3.0
+    },
+    {
+      "text": "전화 안 봤던데?",
+      "start": 14.0,
+      "duration": 2.0
+    },
+    {
+      "text": "카톡 같다, 지금?",
+      "start": 16.0,
+      "duration": 2.0
+    },
+    {
+      "text": "카톡 같다, 지금?",
+      "start": 18.0,
+      "duration": 2.0
+    },
+    {
+      "text": "전화 안 봤던데?",
+      "start": 20.0,
+      "duration": 2.0
+    },
+    {
+      "text": "카톡!",
+      "start": 22.0,
+      "duration": 2.0
+    },
+    {
+      "text": "결혼했냐?",
+      "start": 24.0,
+      "duration": 2.0
+    },
+    {
+      "text": "결혼했냐?",
+      "start": 26.0,
+      "duration": 2.0
+    },
+    {
+      "text": "와!",
+      "start": 28.0,
+      "duration": 2.0
+    },
+    {
+      "text": "둘이 어떻게 만난다?",
+      "start": 30.0,
+      "duration": 2.0
+    },
+    {
+      "text": "어떻게 만난다?",
+      "start": 32.0,
+      "duration": 2.0
+    },
+    {
+      "text": "우리 뭐하게?",
+      "start": 34.0,
+      "duration": 2.0
+    },
+    {
+      "text": "뭐하게?",
+      "start": 36.0,
+      "duration": 2.0
+    },
+    {
+      "text": "베이스다에서 했어?",
+      "start": 38.0,
+      "duration": 2.0
+    },
+    {
+      "text": "베이스다에서 만났어",
+      "start": 40.0,
+      "duration": 2.0
+    },
+    {
+      "text": "베이스다에서 만나면",
+      "start": 42.0,
+      "duration": 2.0
+    },
+    {
+      "text": "오빠, 우리 또 옛날에 해, 진짜",
+      "start": 44.0,
+      "duration": 2.0
+    },
+    {
+      "text": "바쳤다, 우리",
+      "start": 46.0,
+      "duration": 2.0
+    },
+    {
+      "text": "베이스다 맞췄다, 우리",
+      "start": 48.0,
+      "duration": 2.0
+    },
+    {
+      "text": "귀여워",
+      "start": 50.0,
+      "duration": 4.0
+    },
+    {
+      "text": "흘렸어",
+      "start": 54.0,
+      "duration": 2.0
+    },
+    {
+      "text": "야!",
+      "start": 56.0,
+      "duration": 2.0
+    },
+    {
+      "text": "우리 같이",
+      "start": 58.0,
+      "duration": 2.0
+    },
+    {
+      "text": "삼계통",
+      "start": 60.0,
+      "duration": 4.0
+    },
+    {
+      "text": "귀여워",
+      "start": 64.0,
+      "duration": 2.0
+    },
+    {
+      "text": "우리 삼계통 먹고",
+      "start": 66.0,
+      "duration": 2.0
+    },
+    {
+      "text": "남자또한다고",
+      "start": 68.0,
+      "duration": 2.0
+    },
+    {
+      "text": "우리 오빠, 우리 삼계통",
+      "start": 72.0,
+      "duration": 2.0
+    },
+    {
+      "text": "도와면 안 됐어",
+      "start": 74.0,
+      "duration": 4.0
+    },
+    {
+      "text": "속은데",
+      "start": 78.0,
+      "duration": 2.0
+    },
+    {
+      "text": "속은데",
+      "start": 80.0,
+      "duration": 2.0
+    },
+    {
+      "text": "속이 형 남아?",
+      "start": 82.0,
+      "duration": 2.0
+    },
+    {
+      "text": "우리 그때",
+      "start": 84.0,
+      "duration": 2.0
+    },
+    {
+      "text": "속은데",
+      "start": 86.0,
+      "duration": 2.0
+    },
+    {
+      "text": "속은데",
+      "start": 88.0,
+      "duration": 2.0
+    },
+    {
+      "text": "속은데",
+      "start": 90.0,
+      "duration": 2.0
+    },
+    {
+      "text": "정발모같아",
+      "start": 92.0,
+      "duration": 2.0
+    },
+    {
+      "text": "정발모같아",
+      "start": 94.0,
+      "duration": 2.0
+    },
+    {
+      "text": "아기",
+      "start": 96.0,
+      "duration": 2.0
+    }
+  ],
+  "status": "success",
+  "video_title": "13년만에 집에 놀러온 개그맨 선배와 갑자기 몸으로 말해요 해보기ㅋㅋㅋ #13년전 #KBS #개그콘서트 #댄수다 #전남친 #쌍둥이개그맨 #이상호 #상자부부 #부부모임중",
+  "video_url": "https://www.youtube.com/watch?v=IbTIdtPxc3o",
+  "channel": "에나스쿨 ENA School"
+}

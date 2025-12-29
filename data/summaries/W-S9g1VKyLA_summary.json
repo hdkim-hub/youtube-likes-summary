@@ -1,0 +1,9 @@
+{
+  "video_id": "W-S9g1VKyLA",
+  "video_title": "n8n AI Workflow Builder 미쳤다! 프롬프트 한 줄로 자동화 시스템 직접 만들어봤습니다",
+  "video_url": "https://www.youtube.com/watch?v=W-S9g1VKyLA",
+  "channel": "시민개발자 구씨",
+  "type": "general",
+  "summary": "n8n(NADEN)이 Google Opal과 OpenAI의 AI 에이전트 빌더에 대응하여 새로운 'AI Workflow Builder' 기능을 출시했습니다. \n\n이 기능을 사용하면 자연어 프롬프트 한 줄로 복잡한 자동화 워크플로우를 자동으로 생성할 수 있어, 기존에 노드를 하나씩 배치하고 연결하던 번거로운 과정을 크게 단축시킵니다.\n\n현재 베타 버전으로 클라우드 버전에서만 제공되며(14일 무료 체험 가능), 기본적인 워크플로우 구조는 잘 생성하지만 세부 설정이나 복잡한 연결 부분은 수동으로 보완이 필요합니다.\n\n영상에서는 AI 뉴스 수집 자동화와 리드 마그넷 마케팅 워크플로우 제작 등의 실제 테스트를 통해 이 기능의 활용성을 검증하고 있습니다.",
+  "status": "success"
+}

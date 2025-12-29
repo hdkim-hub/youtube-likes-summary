@@ -1,0 +1,133 @@
+{
+  "video_id": "tUF-ZmAhfts",
+  "language": "en",
+  "is_generated": true,
+  "method": "whisper",
+  "text": "I'm sorry, sir. We're not boarding your zone yet. You just called first class. Yes, and you are in coach. Yeah, no seat. Right here, it says zone five. You know, um, my assistant. Sir, we have a full flight today. If you could just step to the side so that our first class passengers can continue boarding, thanks. We'll be with you in a second. Ow! Ow! Ow! Ow! Ow! Ow! Ow! Ow! Ow! Ow! Ow! Ow! Ow! Dr. B. Dr. B. You're alive. I never prayed, but when I saw the crash on the news, I prayed hard. And you believe in fate. I do believe I was born to do this job, sir. Passengers at the front of the plane didn't fare so well when it crashed. Had I been seated in first class instead of coach, I might have been hurt. Because of your mistake that I was able to help people to safety. And we both got lucky. Because if you ever see me in coach again, you're fired.",
+  "entries": [
+    {
+      "text": "I'm sorry, sir. We're not boarding your zone yet.",
+      "start": 0.0,
+      "duration": 2.34
+    },
+    {
+      "text": "You just called first class.",
+      "start": 2.34,
+      "duration": 1.3600000000000003
+    },
+    {
+      "text": "Yes, and you are in coach.",
+      "start": 3.7,
+      "duration": 2.4000000000000004
+    },
+    {
+      "text": "Yeah, no seat. Right here, it says zone five.",
+      "start": 6.1000000000000005,
+      "duration": 2.839999999999999
+    },
+    {
+      "text": "You know, um, my assistant.",
+      "start": 8.94,
+      "duration": 1.9000000000000004
+    },
+    {
+      "text": "Sir, we have a full flight today.",
+      "start": 10.84,
+      "duration": 2.040000000000001
+    },
+    {
+      "text": "If you could just step to the side so that our first class passengers can continue boarding,",
+      "start": 12.88,
+      "duration": 3.339999999999998
+    },
+    {
+      "text": "thanks. We'll be with you in a second.",
+      "start": 16.22,
+      "duration": 1.7000000000000028
+    },
+    {
+      "text": "Ow!",
+      "start": 18.92,
+      "duration": 1.0
+    },
+    {
+      "text": "Ow!",
+      "start": 19.92,
+      "duration": 1.139999999999997
+    },
+    {
+      "text": "Ow!",
+      "start": 21.06,
+      "duration": 1.5
+    },
+    {
+      "text": "Ow! Ow! Ow! Ow!",
+      "start": 22.56,
+      "duration": 2.0
+    },
+    {
+      "text": "Ow! Ow! Ow!",
+      "start": 24.56,
+      "duration": 2.0
+    },
+    {
+      "text": "Ow! Ow!",
+      "start": 26.56,
+      "duration": 2.0
+    },
+    {
+      "text": "Ow!",
+      "start": 28.56,
+      "duration": 2.0
+    },
+    {
+      "text": "Dr. B. Dr. B.",
+      "start": 30.56,
+      "duration": 4.0000000000000036
+    },
+    {
+      "text": "You're alive. I never prayed, but when I saw the crash on the news, I prayed hard.",
+      "start": 34.56,
+      "duration": 3.0
+    },
+    {
+      "text": "And you believe in fate.",
+      "start": 37.56,
+      "duration": 2.0
+    },
+    {
+      "text": "I do believe I was born to do this job, sir.",
+      "start": 39.56,
+      "duration": 2.0
+    },
+    {
+      "text": "Passengers at the front of the plane didn't fare so well when it crashed.",
+      "start": 41.56,
+      "duration": 4.0
+    },
+    {
+      "text": "Had I been seated in first class instead of coach, I might have been hurt.",
+      "start": 45.56,
+      "duration": 4.0
+    },
+    {
+      "text": "Because of your mistake that I was able to help people to safety.",
+      "start": 49.56,
+      "duration": 4.0
+    },
+    {
+      "text": "And we both got lucky.",
+      "start": 53.56,
+      "duration": 1.0
+    },
+    {
+      "text": "Because if you ever see me in coach again, you're fired.",
+      "start": 54.56,
+      "duration": 3.0
+    }
+  ],
+  "status": "success",
+  "video_title": "이코노미석이 일등석보다 좋은점",
+  "video_url": "https://www.youtube.com/watch?v=tUF-ZmAhfts",
+  "channel": "뇌빼영"
+}

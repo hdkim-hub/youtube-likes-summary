@@ -1,0 +1,53 @@
+{
+  "video_id": "j3B38lMVwYI",
+  "language": "en",
+  "is_generated": true,
+  "method": "whisper",
+  "text": "Don't give me that look. Don't give me that look. Don't give me that look. Don't give me that look. Don, don't give me that look. Don't give me a look The winner! Don't give me that look.",
+  "entries": [
+    {
+      "text": "Don't give me that look.",
+      "start": 0.06,
+      "duration": 1.96
+    },
+    {
+      "text": "Don't give me that look.",
+      "start": 2.02,
+      "duration": 1.2000000000000002
+    },
+    {
+      "text": "Don't give me that look.",
+      "start": 4.62,
+      "duration": 1.4800000000000004
+    },
+    {
+      "text": "Don't give me that look.",
+      "start": 6.4,
+      "duration": 1.2999999999999998
+    },
+    {
+      "text": "Don, don't give me that look.",
+      "start": 9.76,
+      "duration": 1.3600000000000012
+    },
+    {
+      "text": "Don't give me a look",
+      "start": 12.32,
+      "duration": 0.5399999999999991
+    },
+    {
+      "text": "The winner!",
+      "start": 12.86,
+      "duration": 0.40000000000000036
+    },
+    {
+      "text": "Don't give me that look.",
+      "start": 13.26,
+      "duration": 1.0999999999999996
+    }
+  ],
+  "status": "success",
+  "video_title": "하루5분영어#영어교육 #영어교재 #영어 #교육 #학습 #영어공부 #영어회화  #English #핵심영어 #초간단영어 #영어표현 #viral#바이럴",
+  "video_url": "https://www.youtube.com/watch?v=j3B38lMVwYI",
+  "channel": "Wake me up"
+}

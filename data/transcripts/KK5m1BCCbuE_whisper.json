@@ -1,0 +1,33 @@
+{
+  "video_id": "KK5m1BCCbuE",
+  "language": "en",
+  "is_generated": true,
+  "method": "whisper",
+  "text": "It all came from Nikki. She's really observant and communicative and somehow it is rubbing off on me. Well, no, you seem really into it so maybe that'll rub off on me. I just wish some of your good qualities would rub off on Morgan.",
+  "entries": [
+    {
+      "text": "It all came from Nikki.",
+      "start": 0.0,
+      "duration": 3.0
+    },
+    {
+      "text": "She's really observant and communicative and somehow it is rubbing off on me.",
+      "start": 3.0,
+      "duration": 5.0
+    },
+    {
+      "text": "Well, no, you seem really into it so maybe that'll rub off on me.",
+      "start": 8.0,
+      "duration": 4.0
+    },
+    {
+      "text": "I just wish some of your good qualities would rub off on Morgan.",
+      "start": 12.0,
+      "duration": 4.0
+    }
+  ],
+  "status": "success",
+  "video_title": "It is rubbing off on me. #미드영어 #영어회화",
+  "video_url": "https://www.youtube.com/watch?v=KK5m1BCCbuE",
+  "channel": "ENGLISH BOOT CAMP (영어 훈련소)"
+}

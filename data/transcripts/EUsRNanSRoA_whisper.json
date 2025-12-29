@@ -1,0 +1,223 @@
+{
+  "video_id": "EUsRNanSRoA",
+  "language": "ko",
+  "is_generated": true,
+  "method": "whisper",
+  "text": "말이야 쉽지? talk is cheap 이거 빨리 히치우자! Let's make this quick! 내 말이 그 말이야? You're telling me! 뭐가 그리 좋아서 웃는 거냐? What are you smiling at? 지금 내 잔소리들을 기분 아니야 I'm in no mood for your nagging 그 말이 사실이냐? Are you telling me? 말도 말아 Don't get me started 그 얘기는 됐어 그만해 Save it Save it 한심하고는 Pathetic 넌 내가 부끄럽냐? Are you ashamed of me? 좀 심하게 말하는 거 아니냐? That's a bit harsh 기분 나빠다면 미안해 Sorry if I offended you 뭔가 잘못됐어 flag on the play 너 왜 마음을 바꿨어? What made you change your mind? 바보같이 굳지 마 Don't make a fool of yourself 말이 되는 소리를 해라 Listen to yourself 절대 말 안 할게 My lips are sealed 난 급할 거 없어 I'm in no rush 살살 좀 대해줘 Go easy on me 난 눈치도 못 쳤어 I didn't even notice 반복해서 따라 연습하고 다음 단계로 넘어가세요",
+  "entries": [
+    {
+      "text": "말이야 쉽지?",
+      "start": 0.0,
+      "duration": 2.22
+    },
+    {
+      "text": "talk is cheap",
+      "start": 2.22,
+      "duration": 4.619999999999999
+    },
+    {
+      "text": "이거 빨리 히치우자!",
+      "start": 6.84,
+      "duration": 2.360000000000001
+    },
+    {
+      "text": "Let's make this quick!",
+      "start": 9.200000000000001,
+      "duration": 5.239999999999998
+    },
+    {
+      "text": "내 말이 그 말이야?",
+      "start": 14.44,
+      "duration": 2.040000000000001
+    },
+    {
+      "text": "You're telling me!",
+      "start": 16.48,
+      "duration": 4.559999999999999
+    },
+    {
+      "text": "뭐가 그리 좋아서 웃는 거냐?",
+      "start": 21.04,
+      "duration": 2.84
+    },
+    {
+      "text": "What are you smiling at?",
+      "start": 23.88,
+      "duration": 5.640000000000001
+    },
+    {
+      "text": "지금 내 잔소리들을 기분 아니야",
+      "start": 29.52,
+      "duration": 3.2799999999999976
+    },
+    {
+      "text": "I'm in no mood for your nagging",
+      "start": 32.8,
+      "duration": 6.760000000000005
+    },
+    {
+      "text": "그 말이 사실이냐?",
+      "start": 39.56,
+      "duration": 2.039999999999999
+    },
+    {
+      "text": "Are you telling me?",
+      "start": 41.6,
+      "duration": 4.759999999999998
+    },
+    {
+      "text": "말도 말아",
+      "start": 46.36,
+      "duration": 1.7199999999999989
+    },
+    {
+      "text": "Don't get me started",
+      "start": 48.08,
+      "duration": 5.32
+    },
+    {
+      "text": "그 얘기는 됐어 그만해",
+      "start": 53.4,
+      "duration": 2.8399999999999963
+    },
+    {
+      "text": "Save it",
+      "start": 56.239999999999995,
+      "duration": 0.9000000000000057
+    },
+    {
+      "text": "Save it",
+      "start": 57.14,
+      "duration": 3.259999999999998
+    },
+    {
+      "text": "한심하고는",
+      "start": 60.4,
+      "duration": 1.7000000000000028
+    },
+    {
+      "text": "Pathetic",
+      "start": 62.1,
+      "duration": 4.1399999999999935
+    },
+    {
+      "text": "넌 내가 부끄럽냐?",
+      "start": 66.24,
+      "duration": 2.280000000000001
+    },
+    {
+      "text": "Are you ashamed of me?",
+      "start": 68.52,
+      "duration": 5.5
+    },
+    {
+      "text": "좀 심하게 말하는 거 아니냐?",
+      "start": 74.02,
+      "duration": 2.680000000000007
+    },
+    {
+      "text": "That's a bit harsh",
+      "start": 76.7,
+      "duration": 5.260000000000005
+    },
+    {
+      "text": "기분 나빠다면 미안해",
+      "start": 81.96000000000001,
+      "duration": 2.539999999999992
+    },
+    {
+      "text": "Sorry if I offended you",
+      "start": 84.5,
+      "duration": 2.0400000000000063
+    },
+    {
+      "text": "뭔가 잘못됐어",
+      "start": 86.54,
+      "duration": 4.560000000000002
+    },
+    {
+      "text": "flag on the play",
+      "start": 91.10000000000001,
+      "duration": 7.280000000000001
+    },
+    {
+      "text": "너 왜 마음을 바꿨어?",
+      "start": 98.38000000000001,
+      "duration": 2.280000000000001
+    },
+    {
+      "text": "What made you change your mind?",
+      "start": 100.66000000000001,
+      "duration": 6.519999999999996
+    },
+    {
+      "text": "바보같이 굳지 마",
+      "start": 107.18,
+      "duration": 4.1200000000000045
+    },
+    {
+      "text": "Don't make a fool of yourself",
+      "start": 111.30000000000001,
+      "duration": 4.519999999999996
+    },
+    {
+      "text": "말이 되는 소리를 해라",
+      "start": 115.82,
+      "duration": 2.200000000000003
+    },
+    {
+      "text": "Listen to yourself",
+      "start": 118.02,
+      "duration": 5.439999999999998
+    },
+    {
+      "text": "절대 말 안 할게",
+      "start": 123.46,
+      "duration": 2.0400000000000063
+    },
+    {
+      "text": "My lips are sealed",
+      "start": 125.5,
+      "duration": 5.400000000000006
+    },
+    {
+      "text": "난 급할 거 없어",
+      "start": 130.9,
+      "duration": 2.1599999999999966
+    },
+    {
+      "text": "I'm in no rush",
+      "start": 133.06,
+      "duration": 5.280000000000001
+    },
+    {
+      "text": "살살 좀 대해줘",
+      "start": 138.34,
+      "duration": 2.1999999999999886
+    },
+    {
+      "text": "Go easy on me",
+      "start": 140.54,
+      "duration": 5.159999999999997
+    },
+    {
+      "text": "난 눈치도 못 쳤어",
+      "start": 145.7,
+      "duration": 2.280000000000001
+    },
+    {
+      "text": "I didn't even notice",
+      "start": 147.98,
+      "duration": 5.240000000000009
+    },
+    {
+      "text": "반복해서 따라 연습하고 다음 단계로 넘어가세요",
+      "start": 153.22,
+      "duration": 3.4799999999999898
+    }
+  ],
+  "status": "success",
+  "video_title": "✴️이럴땐 영어로 1000제 [166] Talk is cheap📌 Speaking & Listening 시험대비 ✏️ #토익 #텝스 #토익lc #영어회화 #생활영어",
+  "video_url": "https://www.youtube.com/watch?v=EUsRNanSRoA",
+  "channel": "퀴즈베어"
+}

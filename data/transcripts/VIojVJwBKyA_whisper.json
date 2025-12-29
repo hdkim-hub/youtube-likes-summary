@@ -1,0 +1,18 @@
+{
+  "video_id": "VIojVJwBKyA",
+  "language": "ko",
+  "is_generated": true,
+  "method": "whisper",
+  "text": "데타포수 출신 대원이 학생들 앞에서 흔들림 없이 정리란 건축사격을 시연하는 정림입니다.",
+  "entries": [
+    {
+      "text": "데타포수 출신 대원이 학생들 앞에서 흔들림 없이 정리란 건축사격을 시연하는 정림입니다.",
+      "start": 0.0,
+      "duration": 5.0
+    }
+  ],
+  "status": "success",
+  "video_title": "델타포스의 요원의 권총 사격 실력",
+  "video_url": "https://www.youtube.com/watch?v=VIojVJwBKyA",
+  "channel": "오호라"
+}

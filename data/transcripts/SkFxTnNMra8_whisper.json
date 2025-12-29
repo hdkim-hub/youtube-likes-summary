@@ -1,0 +1,23 @@
+{
+  "video_id": "SkFxTnNMra8",
+  "language": "en",
+  "is_generated": true,
+  "method": "whisper",
+  "text": "Beggar toujours",
+  "entries": [
+    {
+      "text": "Beggar",
+      "start": 0.0,
+      "duration": 3.66
+    },
+    {
+      "text": "toujours",
+      "start": 3.66,
+      "duration": 4.24
+    }
+  ],
+  "status": "success",
+  "video_title": "미국인들이 자주 쓰는 영어표현222#Shorts#기초영어회화#미국생활영어#왕초보영어회화#미드영어회화/자막없이 미드보기",
+  "video_url": "https://www.youtube.com/watch?v=SkFxTnNMra8",
+  "channel": "마이영어회화"
+}

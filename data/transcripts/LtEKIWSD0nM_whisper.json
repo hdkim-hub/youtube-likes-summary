@@ -1,0 +1,48 @@
+{
+  "video_id": "LtEKIWSD0nM",
+  "language": "en",
+  "is_generated": true,
+  "method": "whisper",
+  "text": "Is that doable? It's complicated, but it's doable. It's challenging. But doable. What makes you think this is doable? Does that sound doable? I'm sorry, it's just not doable.",
+  "entries": [
+    {
+      "text": "Is that doable?",
+      "start": 0.0,
+      "duration": 1.12
+    },
+    {
+      "text": "It's complicated, but it's doable.",
+      "start": 1.12,
+      "duration": 1.92
+    },
+    {
+      "text": "It's challenging.",
+      "start": 3.04,
+      "duration": 1.2000000000000002
+    },
+    {
+      "text": "But doable.",
+      "start": 5.12,
+      "duration": 0.8799999999999999
+    },
+    {
+      "text": "What makes you think this is doable?",
+      "start": 6.0,
+      "duration": 1.8399999999999999
+    },
+    {
+      "text": "Does that sound doable?",
+      "start": 7.84,
+      "duration": 1.2800000000000011
+    },
+    {
+      "text": "I'm sorry, it's just not doable.",
+      "start": 9.120000000000001,
+      "duration": 3.4399999999999995
+    }
+  ],
+  "status": "success",
+  "video_title": "Is that doable? #미드영어 #영어회화",
+  "video_url": "https://www.youtube.com/watch?v=LtEKIWSD0nM",
+  "channel": "ENGLISH BOOT CAMP (영어 훈련소)"
+}
