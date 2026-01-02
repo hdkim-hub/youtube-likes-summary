@@ -2,7 +2,7 @@
 
 *간격 반복 학습을 위한 복습 스케줄입니다.*
 
-## 2026-01-02 (D+1)
+## 2026-01-03 (D+1)
 
 - [ ] [Is that doable? #미드영어 #영어회화](https://www.youtube.com/watch?v=LtEKIWSD0nM)
 - [ ] [써먹는 원어민 생활영어✨ #생활영어 #미드영어 #원어민영어 #shorts #쇼츠](https://www.youtube.com/watch?v=A8GW47uZX2w)
@@ -15,7 +15,7 @@
 - [ ] [영어 소리 변화 훈련 (89) - 원어민 말이 안들리는 이유는 이것! #영어듣기 #영어소리변화훈련 #영어귀뚫기](https://www.youtube.com/watch?v=aqSDE8L50SQ)
 - [ ] [공항 영어는 한 끗 차이 ✈️ | 비행기 지연됐을 때 꼭 할 말](https://www.youtube.com/watch?v=rtwPOnKtaU0)
 
-## 2026-01-04 (D+3)
+## 2026-01-05 (D+3)
 
 - [ ] [Is that doable? #미드영어 #영어회화](https://www.youtube.com/watch?v=LtEKIWSD0nM)
 - [ ] [써먹는 원어민 생활영어✨ #생활영어 #미드영어 #원어민영어 #shorts #쇼츠](https://www.youtube.com/watch?v=A8GW47uZX2w)
@@ -28,7 +28,7 @@
 - [ ] [영어 소리 변화 훈련 (89) - 원어민 말이 안들리는 이유는 이것! #영어듣기 #영어소리변화훈련 #영어귀뚫기](https://www.youtube.com/watch?v=aqSDE8L50SQ)
 - [ ] [공항 영어는 한 끗 차이 ✈️ | 비행기 지연됐을 때 꼭 할 말](https://www.youtube.com/watch?v=rtwPOnKtaU0)
 
-## 2026-01-08 (D+7)
+## 2026-01-09 (D+7)
 
 - [ ] [Is that doable? #미드영어 #영어회화](https://www.youtube.com/watch?v=LtEKIWSD0nM)
 - [ ] [써먹는 원어민 생활영어✨ #생활영어 #미드영어 #원어민영어 #shorts #쇼츠](https://www.youtube.com/watch?v=A8GW47uZX2w)
@@ -41,7 +41,7 @@
 - [ ] [영어 소리 변화 훈련 (89) - 원어민 말이 안들리는 이유는 이것! #영어듣기 #영어소리변화훈련 #영어귀뚫기](https://www.youtube.com/watch?v=aqSDE8L50SQ)
 - [ ] [공항 영어는 한 끗 차이 ✈️ | 비행기 지연됐을 때 꼭 할 말](https://www.youtube.com/watch?v=rtwPOnKtaU0)
 
-## 2026-01-15 (D+14)
+## 2026-01-16 (D+14)
 
 - [ ] [Is that doable? #미드영어 #영어회화](https://www.youtube.com/watch?v=LtEKIWSD0nM)
 - [ ] [써먹는 원어민 생활영어✨ #생활영어 #미드영어 #원어민영어 #shorts #쇼츠](https://www.youtube.com/watch?v=A8GW47uZX2w)
@@ -54,7 +54,7 @@
 - [ ] [영어 소리 변화 훈련 (89) - 원어민 말이 안들리는 이유는 이것! #영어듣기 #영어소리변화훈련 #영어귀뚫기](https://www.youtube.com/watch?v=aqSDE8L50SQ)
 - [ ] [공항 영어는 한 끗 차이 ✈️ | 비행기 지연됐을 때 꼭 할 말](https://www.youtube.com/watch?v=rtwPOnKtaU0)
 
-## 2026-01-31 (D+30)
+## 2026-02-01 (D+30)
 
 - [ ] [Is that doable? #미드영어 #영어회화](https://www.youtube.com/watch?v=LtEKIWSD0nM)
 - [ ] [써먹는 원어민 생활영어✨ #생활영어 #미드영어 #원어민영어 #shorts #쇼츠](https://www.youtube.com/watch?v=A8GW47uZX2w)
