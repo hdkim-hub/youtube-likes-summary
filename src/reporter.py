@@ -1,9 +1,10 @@
 """
-요약 리포트 생성 모듈 (Markdown, Excel, HTML)
+요약 리포트 생성 모듈 (Markdown, Excel, HTML) - PWA 지원 버전
 """
 import os
 import json
-from datetime import datetime, timezone, timedelta
+from datetime import datetime
+from zoneinfo import ZoneInfo
 import pandas as pd
 
 class ReportGenerator:
@@ -14,14 +15,14 @@ class ReportGenerator:
     def generate_markdown_report(self, summaries, categorized_videos, filename=None):
         """Markdown 형식 일일 요약 리포트 생성"""
         if not filename:
-            filename = f"{datetime.now(timezone(timedelta(hours=9))).strftime('%Y%m%d')}_summary.md"
+            filename = f"{datetime.now(ZoneInfo('Asia/Seoul')).strftime('%Y%m%d')}_summary.md"
         
         filepath = os.path.join(self.output_dir, filename)
         
         with open(filepath, 'w', encoding='utf-8') as f:
             # 헤더
             f.write(f"# YouTube 좋아요 영상 요약\n\n")
-            f.write(f"**생성일시**: {datetime.now(timezone(timedelta(hours=9))).strftime('%Y년 %m월 %d일 %H:%M')}\n\n")
+            f.write(f"**생성일시**: {datetime.now(ZoneInfo('Asia/Seoul')).strftime('%Y년 %m월 %d일 %H:%M')}\n\n")
             f.write(f"**총 영상 수**: {len(summaries)}개\n\n")
             
             # 카테고리별 통계
@@ -76,7 +77,7 @@ class ReportGenerator:
     def generate_excel_report(self, summaries, categorized_videos, filename=None):
         """Excel 형식 학습 데이터베이스 생성"""
         if not filename:
-            filename = f"{datetime.now(timezone(timedelta(hours=9))).strftime('%Y%m%d')}_youtube_summaries.xlsx"
+            filename = f"{datetime.now(ZoneInfo('Asia/Seoul')).strftime('%Y%m%d')}_youtube_summaries.xlsx"
         
         filepath = os.path.join(self.output_dir, filename)
         
@@ -104,7 +105,7 @@ class ReportGenerator:
                 'URL': summary['video_url'],
                 '유형': '영어학습' if summary['type'] == 'english_learning' else '일반',
                 '요약': summary['summary'],
-                '수집일시': datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%d %H:%M')
+                '수집일시': datetime.now(ZoneInfo('Asia/Seoul')).strftime('%Y-%m-%d %H:%M')
             })
         
         # DataFrame 생성
@@ -130,9 +131,9 @@ class ReportGenerator:
         return filepath
     
     def generate_html_report(self, summaries, categorized_videos, filename=None):
-        """HTML 웹페이지 리포트 생성"""
+        """HTML 웹페이지 리포트 생성 (PWA 지원)"""
         if not filename:
-            filename = f"{datetime.now(timezone(timedelta(hours=9))).strftime('%Y%m%d')}_summary.html"
+            filename = f"{datetime.now(ZoneInfo('Asia/Seoul')).strftime('%Y%m%d')}_summary.html"
         
         filepath = os.path.join(self.output_dir, filename)
         
@@ -150,8 +151,8 @@ class ReportGenerator:
             for video in videos:
                 video_categories[video['video_id']] = category
         
-        # HTML 생성
-        html_content = self._generate_html_template(
+        # HTML 생성 (PWA 지원 포함)
+        html_content = self._generate_html_template_with_pwa(
             success_summaries, 
             categorized_videos,
             total_videos,
@@ -162,18 +163,40 @@ class ReportGenerator:
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(html_content)
         
-        print(f"✅ HTML 리포트 생성 완료: {filepath}")
+        print(f"✅ HTML 리포트 생성 완료 (PWA 지원): {filepath}")
         print(f"   웹브라우저로 열기: {filepath}")
         return filepath
     
-    def _generate_html_template(self, summaries, categorized_videos, total, english, whisper):
-        """HTML 템플릿 생성"""
-        html = f"""<!DOCTYPE html>
+    def _generate_html_template_with_pwa(self, summaries, categorized_videos, total, english, whisper):
+        """PWA 지원이 포함된 HTML 템플릿 생성"""
+        current_time = datetime.now(ZoneInfo('Asia/Seoul'))
+        date_str = current_time.strftime('%Y.%m.%d')
+        datetime_str = current_time.strftime('%Y년 %m월 %d일 %H:%M')
+        footer_datetime = current_time.strftime('%Y-%m-%d %H:%M:%S')
+        
+        html = f'''<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube 좋아요 요약 - {datetime.now(timezone(timedelta(hours=9))).strftime('%Y.%m.%d')}</title>
+    <title>YouTube 좋아요 요약 - {date_str}</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/youtube-likes-summary/manifest.json">
+    
+    <!-- 테마 색상 -->
+    <meta name="theme-color" content="#FF0000">
+    
+    <!-- iOS 지원 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="LikeSum">
+    <link rel="apple-touch-icon" href="/youtube-likes-summary/icons/likesum-icon-192x192.png">
+    
+    <!-- 기본 아이콘 -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/youtube-likes-summary/icons/likesum-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/youtube-likes-summary/icons/likesum-icon-512x512.png">
+    
     <style>
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         body {{
@@ -200,20 +223,20 @@ class ReportGenerator:
             text-align: center;
             color: #666;
             margin-bottom: 30px;
-            font-size: 1.1em;
         }}
         .stats {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            margin-bottom: 40px;
+            margin: 30px 0;
         }}
         .stat-card {{
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 15px;
             text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }}
         .stat-number {{
             font-size: 2.5em;
@@ -224,103 +247,12 @@ class ReportGenerator:
             font-size: 0.9em;
             opacity: 0.9;
         }}
-        .category-section {{
-            margin-bottom: 40px;
-        }}
-        .category-header {{
-            background: #f8f9fa;
-            padding: 15px 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }}
-        .category-title {{
-            font-size: 1.5em;
-            color: #333;
-            font-weight: bold;
-        }}
-        .category-count {{
-            background: #667eea;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-        }}
-        .video-card {{
-            background: white;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 20px;
-            transition: all 0.3s;
-        }}
-        .video-card:hover {{
-            border-color: #667eea;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
-            transform: translateY(-2px);
-        }}
-        .video-header {{
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 15px;
-        }}
-        .video-title {{
-            font-size: 1.3em;
-            color: #333;
-            font-weight: bold;
-            flex: 1;
-            margin-right: 15px;
-        }}
-        .video-title a {{
-            color: #667eea;
-            text-decoration: none;
-            transition: color 0.3s;
-        }}
-        .video-title a:hover {{
-            color: #764ba2;
-        }}
-        .badge {{
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.8em;
-            font-weight: bold;
-            white-space: nowrap;
-        }}
-        .badge-english {{
-            background: #d4edda;
-            color: #155724;
-        }}
-        .badge-general {{
-            background: #cce5ff;
-            color: #004085;
-        }}
-        .badge-whisper {{
-            background: #fff3cd;
-            color: #856404;
-            margin-left: 5px;
-        }}
-        .video-meta {{
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-        }}
-        .video-summary {{
-            color: #444;
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-            white-space: pre-wrap;
-            line-height: 1.8;
-        }}
         .filter-buttons {{
             display: flex;
             gap: 10px;
-            margin-bottom: 30px;
             flex-wrap: wrap;
+            justify-content: center;
+            margin: 30px 0;
         }}
         .filter-btn {{
             padding: 10px 20px;
@@ -340,6 +272,96 @@ class ReportGenerator:
             background: #667eea;
             color: white;
         }}
+        .category-section {{
+            margin: 30px 0;
+        }}
+        .category-header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }}
+        .category-title {{
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+        }}
+        .category-count {{
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }}
+        .video-card {{
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }}
+        .video-card:hover {{
+            border-color: #667eea;
+            box-shadow: 0 5px 20px rgba(102,126,234,0.2);
+            transform: translateY(-2px);
+        }}
+        .video-header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }}
+        .video-title {{
+            flex: 1;
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-right: 15px;
+        }}
+        .video-title a {{
+            color: inherit;
+            text-decoration: none;
+        }}
+        .video-title a:hover {{
+            color: #667eea;
+        }}
+        .video-meta {{
+            color: #6c757d;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }}
+        .video-meta a {{
+            color: #667eea;
+            text-decoration: none;
+        }}
+        .video-summary {{
+            color: #495057;
+            line-height: 1.8;
+            white-space: pre-wrap;
+        }}
+        .badge {{
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 5px;
+        }}
+        .badge-english {{
+            background: #e3f2fd;
+            color: #1976d2;
+        }}
+        .badge-general {{
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }}
+        .badge-whisper {{
+            background: #fff3e0;
+            color: #e65100;
+        }}
         footer {{
             text-align: center;
             margin-top: 40px;
@@ -357,7 +379,7 @@ class ReportGenerator:
 <body>
     <div class="container">
         <h1>🎬 YouTube 좋아요 요약</h1>
-        <div class="date">생성일시: {datetime.now(timezone(timedelta(hours=9))).strftime('%Y년 %m월 %d일 %H:%M')}</div>
+        <div class="date">생성일시: {datetime_str}</div>
         
         <div class="stats">
             <div class="stat-card">
@@ -384,7 +406,7 @@ class ReportGenerator:
             <button class="filter-btn" onclick="filterVideos('general')">일반</button>
             <button class="filter-btn" onclick="filterVideos('whisper')">Whisper 인식</button>
         </div>
-"""
+'''
         
         # 카테고리별 영상
         for category in sorted(categorized_videos.keys()):
@@ -396,13 +418,13 @@ class ReportGenerator:
             if not category_summaries:
                 continue
             
-            html += f"""
+            html += f'''
         <div class="category-section">
             <div class="category-header">
                 <div class="category-title">📁 {category}</div>
                 <div class="category-count">{len(category_summaries)}개</div>
             </div>
-"""
+'''
             
             for summary in category_summaries:
                 video_type = summary.get('type', 'general')
@@ -411,7 +433,7 @@ class ReportGenerator:
                 type_badge = '<span class="badge badge-english">영어학습</span>' if video_type == 'english_learning' else '<span class="badge badge-general">일반</span>'
                 whisper_badge = '<span class="badge badge-whisper">🎤 Whisper</span>' if method == 'whisper' else ''
                 
-                html += f"""
+                html += f'''
             <div class="video-card" data-type="{video_type}" data-method="{method}">
                 <div class="video-header">
                     <h3 class="video-title">
@@ -427,19 +449,34 @@ class ReportGenerator:
                 </div>
                 <div class="video-summary">{summary['summary']}</div>
             </div>
-"""
+'''
             
-            html += """
+            html += '''
         </div>
-"""
+'''
         
-        html += f"""
+        html += f'''
         <footer>
-            <p>Powered by Claude AI & Whisper | 생성: {datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%d %H:%M:%S')}</p>
+            <p>Powered by Claude AI & Whisper | 생성: {footer_datetime}</p>
         </footer>
     </div>
     
+    <!-- Service Worker 등록 -->
     <script>
+        // Service Worker 등록
+        if ('serviceWorker' in navigator) {{
+            window.addEventListener('load', () => {{
+                navigator.serviceWorker.register('/youtube-likes-summary/service-worker.js')
+                    .then((registration) => {{
+                        console.log('✅ Service Worker 등록 성공:', registration.scope);
+                    }})
+                    .catch((error) => {{
+                        console.log('❌ Service Worker 등록 실패:', error);
+                    }});
+            }});
+        }}
+        
+        // 필터 기능
         function filterVideos(type) {{
             document.querySelectorAll('.filter-btn').forEach(btn => {{
                 btn.classList.remove('active');
@@ -462,14 +499,14 @@ class ReportGenerator:
     </script>
 </body>
 </html>
-"""
+'''
         
         return html
     
     def generate_review_schedule(self, summaries, days=[1, 3, 7, 14, 30]):
         """복습 일정 생성"""
         schedule = {}
-        today = datetime.now(timezone(timedelta(hours=9)))
+        today = datetime.now(ZoneInfo('Asia/Seoul'))
         
         english_summaries = [s for s in summaries if s.get('type') == 'english_learning' and s['status'] == 'success']
         
@@ -512,7 +549,7 @@ class ReportGenerator:
             '성공_요약_수': len([s for s in summaries if s.get('status') == 'success']),
             '영어학습_콘텐츠': len([s for s in summaries if s.get('type') == 'english_learning']),
             '카테고리별_분포': {cat: len(vids) for cat, vids in categorized_videos.items()},
-            '생성일시': datetime.now(timezone(timedelta(hours=9))).isoformat()
+            '생성일시': datetime.now(ZoneInfo('Asia/Seoul')).isoformat()
         }
         
         stats_file = os.path.join(self.output_dir, 'statistics.json')
