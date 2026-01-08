@@ -30,3 +30,4 @@ ENV/
 # OS 파일
 .DS_Store
 Thumbs.db
+config/config.yaml
