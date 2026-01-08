@@ -1,0 +1,17 @@
+youtube:
+  api_key: "NOT_USED"
+  max_results: 50
+
+anthropic:
+  api_key: "${ANTHROPIC_API_KEY}"
+  model: "claude-sonnet-4-20250514"
+
+whisper:
+  enabled: true
+  model: "base"
+  fallback_only: true
+
+output:
+  markdown_format: true
+  excel_export: true
+  html_export: true
