@@ -4,7 +4,7 @@ youtube:
   max_results: 50
 
 anthropic:
-  api_key: "${ANTHROPIC_API_KEY}"  # GitHub Actions에서 환경변수로 주입
+  api_key: "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"  # GitHub Actions에서 환경변수로 주입
   model: "claude-sonnet-4-20250514"
 
 # Whisper 설정

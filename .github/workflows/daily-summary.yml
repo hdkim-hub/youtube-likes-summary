@@ -2,8 +2,9 @@ name: Daily YouTube Summary
 
 on:
   schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
+    # 매일 오전 9시 (한국시간 기준, UTC+9)
+    - cron: '0 0 * * *'  # UTC 00:00 = KST 09:00
+  workflow_dispatch:  # 수동 실행 가능
 
 jobs:
   generate-summary:
@@ -33,14 +34,31 @@ jobs:
         CLIENT_SECRET_BASE64: ${{ secrets.CLIENT_SECRET_BASE64 }}
         TOKEN_PICKLE_BASE64: ${{ secrets.TOKEN_PICKLE_BASE64 }}
       run: |
-        echo "$CLIENT_SECRET_BASE64" | base64 --decode > client_secret.json
-        echo "$TOKEN_PICKLE_BASE64" | base64 --decode > token.pickle
+        if [ -n "$CLIENT_SECRET_BASE64" ]; then
+          echo "$CLIENT_SECRET_BASE64" | base64 --decode > client_secret.json
+          echo "✅ client_secret.json 생성 완료"
+        else
+          echo "⚠️ CLIENT_SECRET_BASE64 secret이 설정되지 않았습니다"
+        fi
+        
+        if [ -n "$TOKEN_PICKLE_BASE64" ]; then
+          echo "$TOKEN_PICKLE_BASE64" | base64 --decode > token.pickle
+          echo "✅ token.pickle 생성 완료"
+        else
+          echo "⚠️ TOKEN_PICKLE_BASE64 secret이 설정되지 않았습니다"
+        fi
     
     - name: Update config with API key
       env:
         ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       run: |
-        sed -i "s/\${ANTHROPIC_API_KEY}/$ANTHROPIC_API_KEY/" config/config.yaml
+        if [ -f "config/config.yaml" ]; then
+          sed -i "s/\${ANTHROPIC_API_KEY}/$ANTHROPIC_API_KEY/" config/config.yaml
+          echo "✅ config.yaml API 키 주입 완료"
+        else
+          echo "❌ config/config.yaml 파일을 찾을 수 없습니다"
+          exit 1
+        fi
     
     - name: Create required directories
       run: |
@@ -48,18 +66,56 @@ jobs:
         mkdir -p data/transcripts
         mkdir -p data/summaries
         mkdir -p outputs
+        echo "✅ 필수 디렉토리 생성 완료"
     
     - name: Run YouTube summary
+      env:
+        CI: true  # CI 환경 변수 설정 (사용자 입력 스킵)
       run: |
+        echo "🚀 YouTube 요약 프로세스 시작..."
         python main.py --max-videos 10
+        echo "✅ YouTube 요약 완료"
+    
+    - name: Check output files
+      run: |
+        echo "📊 생성된 파일 목록:"
+        ls -lah outputs/
+        
+        if [ -z "$(ls -A outputs/)" ]; then
+          echo "⚠️ 출력 파일이 생성되지 않았습니다"
+          exit 1
+        fi
     
     - name: Create index.html
       run: |
         cd outputs
         TODAY=$(date +%Y%m%d)
+        
         if [ -f "${TODAY}_summary.html" ]; then
           cp "${TODAY}_summary.html" index.html
+          echo "✅ index.html 생성 완료: ${TODAY}_summary.html"
+        else
+          echo "⚠️ ${TODAY}_summary.html 파일을 찾을 수 없습니다"
+          # 가장 최근 HTML 파일을 index.html로 사용
+          LATEST_HTML=$(ls -t *_summary.html 2>/dev/null | head -n 1)
+          if [ -n "$LATEST_HTML" ]; then
+            cp "$LATEST_HTML" index.html
+            echo "✅ index.html 생성 완료: $LATEST_HTML"
+          else
+            echo "❌ HTML 파일을 찾을 수 없습니다"
+          fi
         fi
+    
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: youtube-summary-${{ github.run_number }}
+        path: |
+          outputs/*.html
+          outputs/*.md
+          outputs/*.xlsx
+          outputs/*.json
+        retention-days: 30
     
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
@@ -67,3 +123,18 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./outputs
         publish_branch: gh-pages
+        keep_files: false
+        commit_message: "🚀 Update summary: ${{ github.run_number }}"
+
+    - name: Summary
+      if: success()
+      run: |
+        echo "================================================"
+        echo "✅ YouTube 좋아요 요약 완료!"
+        echo "================================================"
+        echo "📊 결과 확인:"
+        echo "   https://${{ github.repository_owner }}.github.io/youtube-likes-summary/"
+        echo ""
+        echo "📦 다운로드:"
+        echo "   Actions 탭 → 이번 실행 → Artifacts"
+        echo "================================================"
