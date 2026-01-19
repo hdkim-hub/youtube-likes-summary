@@ -50,7 +50,7 @@ jobs:
         fi
         
         if [ -n "$YOUTUBE_COOKIES" ]; then
-          echo "$YOUTUBE_COOKIES" > youtube.com_cookies.txt
+          echo "$YOUTUBE_COOKIES" | base64 --decode > youtube.com_cookies.txt
           echo "✅ youtube.com_cookies.txt 생성 완료"
         else
           echo "⚠️ YOUTUBE_COOKIES secret이 설정되지 않았습니다"
