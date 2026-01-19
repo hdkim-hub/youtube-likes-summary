@@ -29,10 +29,11 @@ jobs:
         pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Setup YouTube credentials
+   - name: Setup YouTube credentials
       env:
         CLIENT_SECRET_BASE64: ${{ secrets.CLIENT_SECRET_BASE64 }}
         TOKEN_PICKLE_BASE64: ${{ secrets.TOKEN_PICKLE_BASE64 }}
+        YOUTUBE_COOKIES: ${{ secrets.YOUTUBE_COOKIES }}
       run: |
         if [ -n "$CLIENT_SECRET_BASE64" ]; then
           echo "$CLIENT_SECRET_BASE64" | base64 --decode > client_secret.json
@@ -40,7 +41,20 @@ jobs:
         else
           echo "⚠️ CLIENT_SECRET_BASE64 secret이 설정되지 않았습니다"
         fi
-        - name: Setup YouTube credentials
+        
+        if [ -n "$TOKEN_PICKLE_BASE64" ]; then
+          echo "$TOKEN_PICKLE_BASE64" | base64 --decode > token.pickle
+          echo "✅ token.pickle 생성 완료"
+        else
+          echo "⚠️ TOKEN_PICKLE_BASE64 secret이 설정되지 않았습니다"
+        fi
+        
+        if [ -n "$YOUTUBE_COOKIES" ]; then
+          echo "$YOUTUBE_COOKIES" > youtube.com_cookies.txt
+          echo "✅ youtube.com_cookies.txt 생성 완료"
+        else
+          echo "⚠️ YOUTUBE_COOKIES secret이 설정되지 않았습니다"
+        fi
       env:
         CLIENT_SECRET_BASE64: ${{ secrets.CLIENT_SECRET_BASE64 }}
         TOKEN_PICKLE_BASE64: ${{ secrets.TOKEN_PICKLE_BASE64 }}
