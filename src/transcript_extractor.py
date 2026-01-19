@@ -182,6 +182,12 @@ class TranscriptExtractor:
         
         if os.path.exists(output_path):
             return output_path
+
+        cookie_path = os.path.abspath('youtube.com_cookies.txt')
+        print(f"  🔍 쿠키 파일 경로: {cookie_path}")
+        print(f"  🔍 쿠키 파일 존재: {os.path.exists(cookie_path)}")
+        if os.path.exists(cookie_path):
+            print(f"  🔍 쿠키 파일 크기: {os.path.getsize(cookie_path)} bytes")
         
         ydl_opts = {
             'format': 'bestaudio/best',
