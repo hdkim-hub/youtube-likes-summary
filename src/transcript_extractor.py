@@ -193,7 +193,7 @@ class TranscriptExtractor:
             'outtmpl': os.path.join(self.audio_dir, f"{video_id}.%(ext)s"),
             'quiet': True,
             'no_warnings': True,
-            'cookiefile': 'youtube.com_cookies.txt'
+            'cookiefile': os.path.abspath('youtube.com_cookies.txt'),
         }
         
         try:
